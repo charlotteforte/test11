@@ -184,7 +184,7 @@ const Hero = () => {
 
       {/* Meet Leo Card */}
       <motion.div 
-        className="absolute bottom-12 right-12 w-72 z-100"
+        className="absolute bottom-12 right-12 w-60 z-100"
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
