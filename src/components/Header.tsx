@@ -15,10 +15,11 @@ const Header = () => {
   }, [])
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Méthode', href: '#home' },
+    { name: 'Agence', href: '#services' },
+    { name: 'Cas Client', href: '#about' },
+    { name: 'Intégration', href: '#contact' },
+    { name: 'Leo, Premier développeur IA', href: '#leo' },
   ]
 
   return (
