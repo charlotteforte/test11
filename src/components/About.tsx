@@ -9,7 +9,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-20" style={{ background: 'radial-gradient(707.11% 302.97% at 50% 179.11%, #898F9B 24.36%, #E0E0E0 28.56%, #F7FAFF 41.31%, #FFF 53.75%, #E0E0E0 61.01%)' }}>
+    <section id="about" className="py-20" style={{ background: 'linear-gradient(180deg, #E0E0E0 0%, #F0F2F5 25%, #F7FAFF 50%, #FFFFFF 75%, #F7FAFF 100%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div

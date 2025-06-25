@@ -15,7 +15,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 opacity-90"
         style={{
-          background: 'linear-gradient(45deg, #1a2332 0%, #2d3a4f 20%, #3f4e6b 40%, #2a3548 60%, #1e2a3a 80%, #0f1419 100%)'
+          background: 'linear-gradient(180deg, #0f1419 0%, #1a2332 25%, #2d3a4f 50%, #4a5568 75%, #6b7280 100%)'
         }}
       />
       
