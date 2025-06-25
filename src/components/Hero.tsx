@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import MeetLeoCard from './MeetLeoCard'
 
 const Hero = () => {
   const ref = useRef(null)
@@ -179,6 +180,16 @@ const Hero = () => {
           </div>
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
         </div>
+      </motion.div>
+
+      {/* Meet Leo Card */}
+      <motion.div 
+        className="absolute bottom-12 right-12 w-80 z-100"
+        initial={{ opacity: 0, x: 50, y: 20 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.8 }}
+      >
+        <MeetLeoCard />
       </motion.div>
 
       {/* Ambient light effects */}
