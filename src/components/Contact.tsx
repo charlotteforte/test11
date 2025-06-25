@@ -24,7 +24,7 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-primary to-primary/80">
+    <section id="contact" className="py-20" style={{ background: 'linear-gradient(180deg, #c1c7d0 0%, #a1a8b5 15%, #6b7280 30%, #374151 45%, #1f2937 60%, #141b26 75%, #0a0d11 90%, #000000 100%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -101,11 +101,12 @@ const Contact = () => {
               ></textarea>
               <motion.button
                 type="submit"
-                className="w-full bg-secondary text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary/90 transition-colors duration-300"
-                whileHover={{ scale: 1.02 }}
+                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-lg font-medium transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-blue-500/25 relative overflow-hidden group"
+                whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Send Message
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="relative z-10">Send Message</span>
               </motion.button>
             </form>
           </motion.div>
