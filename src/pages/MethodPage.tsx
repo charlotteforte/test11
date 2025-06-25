@@ -60,6 +60,23 @@ const MethodPage = () => {
       {/* Method Steps Section */}
       <section className="py-20" style={{ background: 'linear-gradient(180deg, #374151 0%, #4b5563 15%, #5a6478 30%, #6b7280 45%, #737a85 60%, #7a8189 75%, #898F9B 85%, #9ba1ab 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-light text-white mb-8">
+              Développer une plateforme ou application sur mesure : mode d'emploi
+            </h2>
+            <p className="text-xl text-gray-200 max-w-5xl mx-auto leading-relaxed mb-6">
+              Notre méthode de développement agile se découpe en 4 étapes successives : conception, développement, déploiement, évolution.
+            </p>
+            <p className="text-lg text-gray-300 max-w-5xl mx-auto leading-relaxed">
+              Ces 4 étapes visent à atteindre un objectif précis : lancer une première version de votre projet dans un délai restreint, afin de le confronter dès que possible à vos utilisateurs cibles et mettre à profit leurs retours pour itérer efficacement sur le produit.
+            </p>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {steps.map((step, index) => {
               const accentColors = [
