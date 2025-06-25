@@ -64,10 +64,9 @@
     rgba(30, 40, 54, 0.5) 70%, 
     rgba(0, 0, 0, 0.7) 100%);
   box-shadow: 
-    0 20px 40px rgba(59, 130, 246, 0.15),
-    0 10px 20px rgba(0, 0, 0, 0.3),
+    0 8px 25px rgba(59, 130, 246, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
 }
 
 .meetLeo {
@@ -115,10 +114,10 @@
 
 .arrowContainer {
   position: absolute;
-  top: 58.86%;
-  right: 3.7%;
-  width: 15.08%;
-  height: 32.57%;
+  top: 65%;
+  right: 8%;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,34 +128,34 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.15),
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .arrowIcon {
   position: relative;
-  width: 50%;
-  height: 50%;
-  color: #1e293b;
+  width: 18px;
+  height: 18px;
+  color: #334155;
   z-index: 3;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 0.5px 1px rgba(0, 0, 0, 0.1));
 }
 
-/* Floating animation for the entire card */
+/* Subtle breathing animation for the entire card */
 .meetLeoCard {
-  animation: float 6s ease-in-out infinite;
+  animation: breathe 4s ease-in-out infinite;
 }
 
-@keyframes float {
+@keyframes breathe {
   0%, 100% {
-    transform: translateY(0px);
+    transform: scale(1);
   }
   50% {
-    transform: translateY(-8px);
+    transform: scale(1.01);
   }
 }
 

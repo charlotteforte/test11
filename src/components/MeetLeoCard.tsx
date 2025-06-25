@@ -12,12 +12,11 @@ const MeetLeoCard: FunctionComponent = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ 
-        scale: 1.03,
-        y: -4
+        scale: 0.98
       }}
       transition={{ 
-        duration: 0.4, 
-        ease: [0.4, 0, 0.2, 1] 
+        duration: 0.3, 
+        ease: "easeOut"
       }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
