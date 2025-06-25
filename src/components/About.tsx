@@ -9,8 +9,50 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-20" style={{ background: 'linear-gradient(180deg, #898F9B 0%, #9ba1ab 25%, #a1a8b5 50%, #b4bac3 75%, #c1c7d0 100%)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="relative py-20 overflow-hidden" style={{ background: 'linear-gradient(180deg, #000000 0%, #050608 20%, #0a0d11 40%, #141b26 60%, #1f2937 80%, #374151 100%)' }}>
+      {/* Floating geometric shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute w-[500px] h-[500px] rounded-full opacity-15 blur-[90px]"
+          style={{
+            background: 'radial-gradient(circle, rgba(14, 165, 233, 0.3) 0%, rgba(6, 182, 212, 0.2) 50%, transparent 70%)',
+            top: '30%',
+            left: '10%'
+          }}
+          animate={{
+            x: [0, 20, -15, 30, 0],
+            y: [0, -30, 20, 15, 0],
+            scale: [1, 1.1, 0.9, 1.05, 1]
+          }}
+          transition={{
+            duration: 22,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        <motion.div
+          className="absolute w-[350px] h-[350px] rounded-full opacity-20 blur-[70px]"
+          style={{
+            background: 'radial-gradient(circle, rgba(34, 197, 94, 0.25) 0%, rgba(16, 185, 129, 0.15) 50%, transparent 70%)',
+            bottom: '10%',
+            right: '15%'
+          }}
+          animate={{
+            x: [0, 15, -10, 25, 0],
+            y: [0, -25, 15, 10, 0],
+            scale: [1, 1.1, 0.9, 1.05, 1]
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: -8
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
