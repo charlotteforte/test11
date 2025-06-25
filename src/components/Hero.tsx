@@ -3,7 +3,7 @@ import { HiArrowRight } from 'react-icons/hi'
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -34,16 +34,8 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get Started
+              Contacter nous
               <HiArrowRight />
-            </motion.button>
-            
-            <motion.button
-              className="border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-medium hover:bg-primary hover:text-white transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Our Work
             </motion.button>
           </motion.div>
         </motion.div>
