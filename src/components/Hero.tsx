@@ -1,42 +1,6 @@
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const Hero = () => {
-  const [typedText, setTypedText] = useState('')
-  const [showCursor, setShowCursor] = useState(true)
-  const [currentLineIndex, setCurrentLineIndex] = useState(0)
-  const lines = ['Développez votre projet', 'Web Mobile Data sur mesure']
-
-  useEffect(() => {
-    let lineIndex = 0
-    let charIndex = 0
-    let currentText = ''
-    
-    const typeText = () => {
-      if (lineIndex < lines.length) {
-        if (charIndex < lines[lineIndex].length) {
-          currentText = lines.slice(0, lineIndex).join('\n') + 
-                       (lineIndex > 0 ? '\n' : '') + 
-                       lines[lineIndex].slice(0, charIndex + 1)
-          setTypedText(currentText)
-          setCurrentLineIndex(lineIndex)
-          charIndex++
-          setTimeout(typeText, 100)
-        } else {
-          lineIndex++
-          charIndex = 0
-          if (lineIndex < lines.length) {
-            setTimeout(typeText, 200)
-          } else {
-            setTimeout(() => setShowCursor(false), 2000)
-          }
-        }
-      }
-    }
-    
-    const timer = setTimeout(typeText, 500)
-    return () => clearTimeout(timer)
-  }, [])
 
   const handleScrollClick = () => {
     window.scrollTo({
@@ -122,17 +86,16 @@ const Hero = () => {
 
       {/* Main content */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-50">
-        <h1 className="text-white font-light leading-tight tracking-wide mb-8 font-sans" 
-            style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
-          {typedText.split('\n').map((line, index) => (
-            <span key={index} className="block">
-              {line}
-              {showCursor && index === currentLineIndex && (
-                <span className="border-r border-white ml-1 animate-pulse"></span>
-              )}
-            </span>
-          ))}
-        </h1>
+        <motion.h1 
+          className="text-white font-light leading-tight tracking-wide mb-8 font-sans" 
+          style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <span className="block">Développez votre projet</span>
+          <span className="block">Web Mobile Data sur mesure</span>
+        </motion.h1>
       </div>
 
       {/* Scroll indicator */}
