@@ -30,7 +30,7 @@ const Services = () => {
   ]
 
   return (
-    <section id="services" className="py-20" style={{ background: 'linear-gradient(180deg, #6b7280 0%, #7a8189 15%, #898F9B 30%, #9ba1ab 45%, #a1a8b5 60%, #b4bac3 75%, #c1c7d0 85%, #E0E0E0 100%)' }}>
+    <section id="services" className="py-20" style={{ background: 'linear-gradient(180deg, #6b7280 0%, #6f757d 15%, #737a85 30%, #7a8189 45%, #898F9B 60%, #9ba1ab 75%, #a1a8b5 85%, #b4bac3 100%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-20"
