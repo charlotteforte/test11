@@ -44,13 +44,13 @@ const MethodPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-light text-white mb-8 tracking-wide">
+            <h1 className="text-3xl md:text-4xl font-light text-white mb-8 tracking-wide">
               Méthode de développement agile
             </h1>
-            <h2 className="text-3xl md:text-4xl font-light text-white/90 mb-8">
+            <h2 className="text-2xl md:text-3xl font-light text-white/90 mb-8">
               Prototyper. Développer. Itérer.
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl leading-relaxed">
+            <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">
               Notre méthode de développement Web et Mobile agile vise à concevoir des produits de manière efficace et pragmatique.
             </p>
           </motion.div>
