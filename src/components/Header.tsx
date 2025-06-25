@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
+import { Link, useLocation } from 'react-router-dom'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +17,11 @@ const Header = () => {
   }, [])
 
   const navItems = [
-    { name: 'Méthode', href: '#method' },
-    { name: 'Agence', href: '#services' },
-    { name: 'Cas Client', href: '#about' },
-    { name: 'Intégration', href: '#contact' },
-    { name: 'Leo, Premier développeur IA', href: '#leo' },
+    { name: 'Méthode', href: '/method', type: 'route' },
+    { name: 'Agence', href: '#services', type: 'anchor' },
+    { name: 'Cas Client', href: '#about', type: 'anchor' },
+    { name: 'Intégration', href: '#contact', type: 'anchor' },
+    { name: 'Leo, Premier développeur IA', href: '#leo', type: 'anchor' },
   ]
 
   return (
@@ -31,24 +33,37 @@ const Header = () => {
     >
       <div className="w-full px-8 lg:px-12">
         <div className="flex justify-between items-center h-20">
-          <motion.div
-            className="text-xl font-light text-white tracking-widest"
-            whileHover={{ scale: 1.05 }}
-          >
-            Terros
-          </motion.div>
+          <Link to="/">
+            <motion.div
+              className="text-xl font-light text-white tracking-widest"
+              whileHover={{ scale: 1.05 }}
+            >
+              Terros
+            </motion.div>
+          </Link>
 
           <nav className="hidden lg:flex items-center">
             <ul className="flex gap-8 items-center">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <motion.a
-                    href={item.href}
-                    className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light whitespace-nowrap"
-                    whileHover={{ y: -2 }}
-                  >
-                    {item.name}
-                  </motion.a>
+                  {item.type === 'route' ? (
+                    <Link to={item.href}>
+                      <motion.span
+                        className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light whitespace-nowrap"
+                        whileHover={{ y: -2 }}
+                      >
+                        {item.name}
+                      </motion.span>
+                    </Link>
+                  ) : (
+                    <motion.a
+                      href={location.pathname === '/' ? item.href : `/${item.href}`}
+                      className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light whitespace-nowrap"
+                      whileHover={{ y: -2 }}
+                    >
+                      {item.name}
+                    </motion.a>
+                  )}
                 </li>
               ))}
               <li>
@@ -80,14 +95,25 @@ const Header = () => {
           >
             <div className="px-4 pt-4 pb-6 space-y-4 flex flex-col items-center">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-white/70 hover:text-white text-sm font-light"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
+                item.type === 'route' ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="block text-white/70 hover:text-white text-sm font-light"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={location.pathname === '/' ? item.href : `/${item.href}`}
+                    className="block text-white/70 hover:text-white text-sm font-light"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                )
               ))}
               <a
                 href="#"
