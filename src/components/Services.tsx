@@ -33,17 +33,17 @@ const Services = () => {
     <section id="services" className="py-20" style={{ background: 'radial-gradient(407.54% 174.62% at 50% -30.82%, #0f1419 0%, #1a2332 15%, #2d3a4f 30%, #3f4e6b 45%, #898F9B 60%, #E0E0E0 75%, #F7FAFF 90%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
-            Our Services
+          <h2 className="text-5xl md:text-6xl font-light text-white mb-8 tracking-wide">
+            Nos Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We offer comprehensive digital solutions to help your business thrive in the modern world
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Des solutions digitales sur mesure pour propulser votre entreprise vers l'excellence
           </p>
         </motion.div>
 
@@ -51,18 +51,19 @@ const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300"
+              className="relative bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 hover:bg-white/20 transition-all duration-500 group"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
+              transition={{ delay: index * 0.15, duration: 0.8 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -15, scale: 1.02 }}
             >
-              <service.icon className={`w-12 h-12 ${service.color} mb-6`} />
-              <h3 className="text-xl font-medium text-gray-900 mb-4">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <service.icon className={`w-14 h-14 text-white mb-8 relative z-10 group-hover:scale-110 transition-transform duration-300`} />
+              <h3 className="text-2xl font-light text-white mb-6 relative z-10">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed relative z-10 group-hover:text-white transition-colors duration-300">
                 {service.description}
               </p>
             </motion.div>
