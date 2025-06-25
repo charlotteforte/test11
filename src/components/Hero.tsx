@@ -161,26 +161,6 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Enhanced scroll indicator */}
-      <motion.div 
-        className="absolute bottom-12 left-12 z-100 cursor-pointer group"
-        onClick={handleScrollClick}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
-        whileHover={{ scale: 1.1 }}
-      >
-        <div className="relative">
-          <div className="w-20 h-20 border border-white/30 rounded-full flex items-center justify-center group-hover:border-white transition-all duration-500 backdrop-blur-sm bg-white/5">
-            <motion.div 
-              className="w-4 h-4 border-b border-l border-white/70 transform rotate-45 -mt-1"
-              animate={{ y: [0, 3, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </div>
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
-        </div>
-      </motion.div>
 
       {/* Meet Leo Card */}
       <motion.div 
