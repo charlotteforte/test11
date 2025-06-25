@@ -44,37 +44,49 @@ const Header = () => {
 
           <nav className="hidden lg:flex items-center">
             <ul className="flex gap-8 items-center">
-              {navItems.map((item) => (
-                <li key={item.name}>
+              {navItems.map((item, index) => (
+                <motion.li 
+                  key={item.name}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                >
                   {item.type === 'route' ? (
                     <Link to={item.href}>
                       <motion.span
-                        className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light whitespace-nowrap"
+                        className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light whitespace-nowrap relative group"
                         whileHover={{ y: -2 }}
                       >
                         {item.name}
+                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300" />
                       </motion.span>
                     </Link>
                   ) : (
                     <motion.a
                       href={location.pathname === '/' ? item.href : `/${item.href}`}
-                      className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light whitespace-nowrap"
+                      className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light whitespace-nowrap relative group"
                       whileHover={{ y: -2 }}
                     >
                       {item.name}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300" />
                     </motion.a>
                   )}
-                </li>
+                </motion.li>
               ))}
-              <li>
+              <motion.li
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navItems.length * 0.1, duration: 0.6 }}
+              >
                 <motion.a
                   href="#"
-                  className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light ml-4"
+                  className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light ml-4 relative group"
                   whileHover={{ y: -2 }}
                 >
                   EN
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400 group-hover:w-full transition-all duration-300" />
                 </motion.a>
-              </li>
+              </motion.li>
             </ul>
           </nav>
 

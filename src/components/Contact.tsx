@@ -106,7 +106,25 @@ const Contact = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative z-10">Send Message</span>
+                <span className="relative z-10 flex justify-center">
+                  {"Send Message".split("").map((letter, index) => (
+                    <motion.span
+                      key={index}
+                      className="inline-block"
+                      initial={{ y: 0 }}
+                      whileHover={{ 
+                        y: [-2, -8, -2],
+                        transition: { 
+                          delay: index * 0.05,
+                          duration: 0.4,
+                          ease: "easeInOut"
+                        }
+                      }}
+                    >
+                      {letter === " " ? "\u00A0" : letter}
+                    </motion.span>
+                  ))}
+                </span>
               </motion.button>
             </form>
           </motion.div>
