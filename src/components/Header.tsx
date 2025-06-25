@@ -35,7 +35,7 @@ const Header = () => {
             className="text-xl font-light text-white tracking-widest"
             whileHover={{ scale: 1.05 }}
           >
-            monopo saigon
+            Terros
           </motion.div>
 
           <nav className="hidden lg:flex items-center">
