@@ -32,24 +32,32 @@ const About = () => {
             </p>
             
             <div className="grid grid-cols-2 gap-8">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  className="text-center p-6 bg-white/30 backdrop-blur-sm rounded-2xl border border-white/40 hover:bg-white/50 transition-all duration-300"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                >
-                  <div className="text-4xl font-light text-white mb-3">
-                    {stat.number}
-                  </div>
-                  <div className="text-white font-medium">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
+              {stats.map((stat, index) => {
+                const accentColors = [
+                  'hover:from-red-500/20 hover:to-orange-500/10',
+                  'hover:from-blue-500/20 hover:to-purple-500/10',
+                  'hover:from-green-500/20 hover:to-emerald-500/10',
+                  'hover:from-purple-500/20 hover:to-pink-500/10'
+                ]
+                return (
+                  <motion.div
+                    key={stat.label}
+                    className={`text-center p-6 bg-white/30 backdrop-blur-sm rounded-2xl border border-white/40 hover:bg-gradient-to-br ${accentColors[index]} transition-all duration-300 group overflow-hidden relative`}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5, scale: 1.02 }}
+                  >
+                    <div className="text-4xl font-light text-white mb-3 relative z-10">
+                      {stat.number}
+                    </div>
+                    <div className="text-white font-medium relative z-10">
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                )
+              })}
             </div>
           </motion.div>
 

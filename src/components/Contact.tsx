@@ -101,7 +101,7 @@ const Contact = () => {
               ></textarea>
               <motion.button
                 type="submit"
-                className="w-full bg-secondary text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary/90 transition-colors duration-300"
+                className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
