@@ -22,9 +22,9 @@ const Hero = () => {
       {/* Animated shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute w-[800px] h-[800px] rounded-full opacity-70 blur-[60px]"
+          className="absolute w-[800px] h-[800px] rounded-full opacity-60 blur-[80px]"
           style={{
-            background: 'radial-gradient(circle, rgba(255, 107, 107, 0.3) 0%, rgba(255, 142, 83, 0.2) 50%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(147, 197, 253, 0.2) 50%, transparent 70%)',
             top: '-20%',
             right: '-10%'
           }}
@@ -42,9 +42,9 @@ const Hero = () => {
         />
         
         <motion.div
-          className="absolute w-[600px] h-[600px] rounded-full opacity-60 blur-[60px]"
+          className="absolute w-[600px] h-[600px] rounded-full opacity-50 blur-[80px]"
           style={{
-            background: 'radial-gradient(circle, rgba(96, 165, 250, 0.25) 0%, rgba(139, 92, 246, 0.15) 50%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, rgba(16, 185, 129, 0.2) 50%, transparent 70%)',
             bottom: '-15%',
             left: '-5%'
           }}
@@ -63,9 +63,9 @@ const Hero = () => {
         />
         
         <motion.div
-          className="absolute w-[400px] h-[400px] rounded-full opacity-50 blur-[60px]"
+          className="absolute w-[400px] h-[400px] rounded-full opacity-40 blur-[60px]"
           style={{
-            background: 'radial-gradient(circle, rgba(34, 197, 94, 0.2) 0%, rgba(16, 185, 129, 0.1) 50%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, rgba(6, 182, 212, 0.15) 50%, transparent 70%)',
             top: '30%',
             left: '20%'
           }}

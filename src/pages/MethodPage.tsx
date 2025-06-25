@@ -63,48 +63,55 @@ const MethodPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {steps.map((step, index) => {
               const accentColors = [
-                'from-red-500/20 to-orange-500/10',
-                'from-blue-500/20 to-purple-500/10',
-                'from-green-500/20 to-emerald-500/10',
-                'from-purple-500/20 to-pink-500/10'
+                'from-blue-500/20 to-cyan-500/10',
+                'from-emerald-500/20 to-teal-500/10',
+                'from-sky-500/20 to-blue-500/10',
+                'from-teal-500/20 to-green-500/10'
               ]
               const hoverColors = [
-                'group-hover:from-red-500/30 group-hover:to-orange-500/20',
-                'group-hover:from-blue-500/30 group-hover:to-purple-500/20',
-                'group-hover:from-green-500/30 group-hover:to-emerald-500/20',
-                'group-hover:from-purple-500/30 group-hover:to-pink-500/20'
+                'group-hover:from-blue-500/30 group-hover:to-cyan-500/20',
+                'group-hover:from-emerald-500/30 group-hover:to-teal-500/20',
+                'group-hover:from-sky-500/30 group-hover:to-blue-500/20',
+                'group-hover:from-teal-500/30 group-hover:to-green-500/20'
               ]
               const numberColors = [
-                'group-hover:bg-gradient-to-r group-hover:from-red-500 group-hover:to-orange-500',
-                'group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-500',
-                'group-hover:bg-gradient-to-r group-hover:from-green-500 group-hover:to-emerald-500',
-                'group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-pink-500'
+                'group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-cyan-500',
+                'group-hover:bg-gradient-to-r group-hover:from-emerald-500 group-hover:to-teal-500',
+                'group-hover:bg-gradient-to-r group-hover:from-sky-500 group-hover:to-blue-500',
+                'group-hover:bg-gradient-to-r group-hover:from-teal-500 group-hover:to-green-500'
+              ]
+              const borderColors = [
+                'group-hover:border-blue-400/40',
+                'group-hover:border-emerald-400/40',
+                'group-hover:border-sky-400/40',
+                'group-hover:border-teal-400/40'
               ]
               return (
                 <motion.div
                   key={step.number}
-                  className="relative bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 hover:bg-white/20 transition-all duration-500 group overflow-hidden"
+                  className={`relative bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 ${borderColors[index]} transition-all duration-700 group overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2, duration: 0.8 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -10, scale: 1.02 }}
+                  whileHover={{ y: -15, scale: 1.03 }}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${accentColors[index]} ${hoverColors[index]} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${accentColors[index]} ${hoverColors[index]} rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700`} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   
                   <div className="flex items-start space-x-6 relative z-10">
                     <div className="flex-shrink-0">
-                      <div className={`w-16 h-16 bg-white/20 ${numberColors[index]} rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300`}>
+                      <div className={`w-16 h-16 bg-white/20 ${numberColors[index]} rounded-full flex items-center justify-center mb-4 group-hover:scale-125 transition-all duration-500 shadow-lg group-hover:shadow-xl`}>
                         <span className="text-2xl font-light text-white">{step.number}</span>
                       </div>
-                      <step.icon className="w-12 h-12 text-white mx-auto group-hover:scale-110 transition-transform duration-300" />
+                      <step.icon className="w-12 h-12 text-white mx-auto group-hover:scale-125 transition-transform duration-500 drop-shadow-lg" />
                     </div>
                     
                     <div className="flex-1">
-                      <h3 className="text-2xl font-light text-white mb-4 group-hover:text-white transition-colors duration-300">
+                      <h3 className="text-2xl font-light text-white mb-4 group-hover:text-white transition-colors duration-500">
                         {step.title}
                       </h3>
-                      <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors duration-300">
+                      <p className="text-gray-300 leading-relaxed group-hover:text-gray-100 transition-colors duration-500">
                         {step.description}
                       </p>
                     </div>

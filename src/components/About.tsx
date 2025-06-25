@@ -34,25 +34,32 @@ const About = () => {
             <div className="grid grid-cols-2 gap-8">
               {stats.map((stat, index) => {
                 const accentColors = [
-                  'hover:from-red-500/20 hover:to-orange-500/10',
-                  'hover:from-blue-500/20 hover:to-purple-500/10',
-                  'hover:from-green-500/20 hover:to-emerald-500/10',
-                  'hover:from-purple-500/20 hover:to-pink-500/10'
+                  'hover:from-blue-500/25 hover:to-cyan-500/15',
+                  'hover:from-emerald-500/25 hover:to-teal-500/15',
+                  'hover:from-sky-500/25 hover:to-blue-500/15',
+                  'hover:from-teal-500/25 hover:to-green-500/15'
+                ]
+                const borderColors = [
+                  'hover:border-blue-400/50',
+                  'hover:border-emerald-400/50',
+                  'hover:border-sky-400/50',
+                  'hover:border-teal-400/50'
                 ]
                 return (
                   <motion.div
                     key={stat.label}
-                    className={`text-center p-6 bg-white/30 backdrop-blur-sm rounded-2xl border border-white/40 hover:bg-gradient-to-br ${accentColors[index]} transition-all duration-300 group overflow-hidden relative`}
+                    className={`text-center p-6 bg-white/30 backdrop-blur-sm rounded-2xl border border-white/40 ${borderColors[index]} hover:bg-gradient-to-br ${accentColors[index]} transition-all duration-500 group overflow-hidden relative hover:shadow-xl hover:shadow-blue-500/10`}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.6 }}
                     viewport={{ once: true }}
-                    whileHover={{ y: -5, scale: 1.02 }}
+                    whileHover={{ y: -8, scale: 1.05 }}
                   >
-                    <div className="text-4xl font-light text-white mb-3 relative z-10">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="text-4xl font-light text-white mb-3 relative z-10 group-hover:scale-110 transition-transform duration-500">
                       {stat.number}
                     </div>
-                    <div className="text-white font-medium relative z-10">
+                    <div className="text-white font-medium relative z-10 group-hover:text-gray-100 transition-colors duration-500">
                       {stat.label}
                     </div>
                   </motion.div>
