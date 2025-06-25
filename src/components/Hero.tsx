@@ -11,12 +11,11 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl font-light text-gray-900 mb-6">
-            Custom Digital
-            <span className="block text-primary font-normal">Development</span>
+            Custom Digital Development
           </h1>
           
           <motion.p
-            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto font-light"
+            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto font-light mt-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
