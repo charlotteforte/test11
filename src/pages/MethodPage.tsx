@@ -36,30 +36,159 @@ const MethodPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20" style={{ background: 'linear-gradient(180deg, #000000 0%, #050608 20%, #0a0d11 40%, #141b26 60%, #1f2937 80%, #374151 100%)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 pb-20 overflow-hidden" style={{ background: 'linear-gradient(180deg, #000000 0%, #050608 20%, #0a0d11 40%, #141b26 60%, #1f2937 80%, #374151 100%)' }}>
+        {/* Floating geometric shapes */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute w-[800px] h-[800px] rounded-full opacity-30 blur-[120px]"
+            style={{
+              background: 'radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, rgba(147, 197, 253, 0.25) 40%, transparent 70%)',
+              top: '-20%',
+              right: '-15%'
+            }}
+            animate={{
+              x: [0, 40, -25, 50, 0],
+              y: [0, -60, 40, 25, 0],
+              scale: [1, 1.15, 0.85, 1.05, 1]
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <motion.div
+            className="absolute w-[600px] h-[600px] rounded-full opacity-25 blur-[100px]"
+            style={{
+              background: 'radial-gradient(circle, rgba(34, 197, 94, 0.4) 0%, rgba(16, 185, 129, 0.2) 50%, transparent 70%)',
+              bottom: '-10%',
+              left: '-10%'
+            }}
+            animate={{
+              x: [0, 30, -20, 40, 0],
+              y: [0, -40, 30, 20, 0],
+              scale: [1, 1.1, 0.9, 1.05, 1]
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: -10
+            }}
+          />
+
+          {/* Floating particles */}
+          {[...Array(4)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-white/20 rounded-full"
+              style={{
+                top: `${30 + i * 20}%`,
+                left: `${15 + i * 15}%`
+              }}
+              animate={{
+                y: [-15, -45, -15],
+                opacity: [0.2, 0.6, 0.2],
+                scale: [1, 1.3, 1]
+              }}
+              transition={{
+                duration: 3 + i,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.4
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-left"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-light text-white mb-8 tracking-wide">
+            <motion.h1 
+              className="text-5xl md:text-6xl font-light text-white mb-8 tracking-wide"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
               Méthode de développement agile
-            </h1>
-            <h2 className="text-3xl md:text-4xl font-light text-white/90 mb-8">
+            </motion.h1>
+            <motion.h2 
+              className="text-3xl md:text-4xl font-light bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-8"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
               Prototyper. Développer. Itérer.
-            </h2>
-            <p className="text-xl text-gray-300 max-w-4xl leading-relaxed">
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-gray-300 max-w-4xl leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
               Notre méthode de développement Web et Mobile agile vise à concevoir des produits de manière efficace et pragmatique.
-            </p>
+            </motion.p>
           </motion.div>
+        </div>
+
+        {/* Ambient light effects */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-blue-500/20 to-transparent" />
+          <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-emerald-500/20 to-transparent" />
+          <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
         </div>
       </section>
 
       {/* Method Steps Section */}
-      <section className="py-20" style={{ background: 'linear-gradient(180deg, #374151 0%, #4b5563 15%, #5a6478 30%, #6b7280 45%, #737a85 60%, #7a8189 75%, #898F9B 85%, #9ba1ab 100%)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 overflow-hidden" style={{ background: 'linear-gradient(180deg, #374151 0%, #1f2937 20%, #141b26 40%, #0a0d11 60%, #050608 80%, #000000 100%)' }}>
+        {/* Floating geometric shapes */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute w-[500px] h-[500px] rounded-full opacity-15 blur-[90px]"
+            style={{
+              background: 'radial-gradient(circle, rgba(14, 165, 233, 0.3) 0%, rgba(6, 182, 212, 0.2) 50%, transparent 70%)',
+              top: '20%',
+              right: '10%'
+            }}
+            animate={{
+              x: [0, 25, -15, 35, 0],
+              y: [0, -30, 20, 15, 0],
+              scale: [1, 1.1, 0.9, 1.05, 1]
+            }}
+            transition={{
+              duration: 22,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <motion.div
+            className="absolute w-[400px] h-[400px] rounded-full opacity-20 blur-[80px]"
+            style={{
+              background: 'radial-gradient(circle, rgba(34, 197, 94, 0.25) 0%, rgba(16, 185, 129, 0.15) 50%, transparent 70%)',
+              bottom: '30%',
+              left: '5%'
+            }}
+            animate={{
+              x: [0, 20, -10, 30, 0],
+              y: [0, -25, 15, 10, 0],
+              scale: [1, 1.1, 0.9, 1.05, 1]
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: -8
+            }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-left mb-16"
             initial={{ opacity: 0, y: 30 }}
