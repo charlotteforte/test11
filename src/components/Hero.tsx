@@ -106,8 +106,8 @@ const Hero = () => {
 
       {/* Main content */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-50">
-        <h1 className="text-white font-light leading-tight tracking-wide mb-8" 
-            style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}>
+        <h1 className="text-white font-light leading-tight tracking-wide mb-8 font-sans" 
+            style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
           <span className={`inline-block ${showCursor ? 'border-r-2 border-white' : ''}`}>
             {typedText.split('\n').map((line, index) => (
               <span key={index}>
@@ -127,8 +127,8 @@ const Hero = () => {
         animate={{ opacity: [1, 0.5, 1] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-15 h-15 border border-white/30 rounded-full flex items-center justify-center hover:border-white transition-all duration-300">
-          <div className="w-3 h-3 border-r border-b border-white/70 transform rotate-45 -mt-1" />
+        <div className="w-20 h-20 border border-white/30 rounded-full flex items-center justify-center hover:border-white transition-all duration-300">
+          <div className="w-4 h-4 border-r border-b border-white/70 transform rotate-45 -mt-1" />
         </div>
       </motion.div>
 
