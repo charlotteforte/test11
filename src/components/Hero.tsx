@@ -4,17 +4,33 @@ import { motion } from 'framer-motion'
 const Hero = () => {
   const [typedText, setTypedText] = useState('')
   const [showCursor, setShowCursor] = useState(true)
-  const fullText = 'Développez votre projet\nWeb Mobile Data sur mesure'
+  const [currentLineIndex, setCurrentLineIndex] = useState(0)
+  const lines = ['Développez votre projet', 'Web Mobile Data sur mesure']
 
   useEffect(() => {
-    let i = 0
+    let lineIndex = 0
+    let charIndex = 0
+    let currentText = ''
+    
     const typeText = () => {
-      if (i < fullText.length) {
-        setTypedText(fullText.slice(0, i + 1))
-        i++
-        setTimeout(typeText, 100)
-      } else {
-        setTimeout(() => setShowCursor(false), 2000)
+      if (lineIndex < lines.length) {
+        if (charIndex < lines[lineIndex].length) {
+          currentText = lines.slice(0, lineIndex).join('\n') + 
+                       (lineIndex > 0 ? '\n' : '') + 
+                       lines[lineIndex].slice(0, charIndex + 1)
+          setTypedText(currentText)
+          setCurrentLineIndex(lineIndex)
+          charIndex++
+          setTimeout(typeText, 100)
+        } else {
+          lineIndex++
+          charIndex = 0
+          if (lineIndex < lines.length) {
+            setTimeout(typeText, 200)
+          } else {
+            setTimeout(() => setShowCursor(false), 2000)
+          }
+        }
       }
     }
     
@@ -108,14 +124,14 @@ const Hero = () => {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-50">
         <h1 className="text-white font-light leading-tight tracking-wide mb-8 font-sans" 
             style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
-          <span className={`inline-block ${showCursor ? 'border-r border-white' : ''}`}>
-            {typedText.split('\n').map((line, index) => (
-              <span key={index}>
-                {line}
-                {index < typedText.split('\n').length - 1 && <br />}
-              </span>
-            ))}
-          </span>
+          {typedText.split('\n').map((line, index) => (
+            <span key={index} className="block">
+              {line}
+              {showCursor && index === currentLineIndex && (
+                <span className="border-r border-white ml-1 animate-pulse"></span>
+              )}
+            </span>
+          ))}
         </h1>
       </div>
 
@@ -124,23 +140,12 @@ const Hero = () => {
         className="absolute bottom-12 left-12 z-100 cursor-pointer"
         onClick={handleScrollClick}
         whileHover={{ scale: 1.1 }}
-        animate={{ opacity: [1, 0.5, 1] }}
-        transition={{ duration: 2, repeat: Infinity }}
       >
         <div className="w-20 h-20 border border-white/30 rounded-full flex items-center justify-center hover:border-white transition-all duration-300">
           <div className="w-4 h-4 border-r border-b border-white/70 transform rotate-45 -mt-1" />
         </div>
       </motion.div>
 
-      <style jsx>{`
-        @keyframes blink-caret {
-          from, to { border-color: transparent; }
-          50% { border-color: white; }
-        }
-        .border-r {
-          animation: blink-caret 0.75s step-end infinite;
-        }
-      `}</style>
     </section>
   )
 }
