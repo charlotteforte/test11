@@ -24,7 +24,7 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="py-20" style={{ background: 'linear-gradient(180deg, #d1d5db 0%, #b4bac3 15%, #7a8189 30%, #4b5563 45%, #374151 60%, #1f2937 75%, #141b26 90%, #0a0d11 100%)' }}>
+    <section id="contact" className="py-20" style={{ background: 'linear-gradient(180deg, #c1c7d0 0%, #a1a8b5 15%, #6b7280 30%, #374151 45%, #1f2937 60%, #141b26 75%, #0a0d11 90%, #000000 100%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
