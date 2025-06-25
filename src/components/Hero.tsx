@@ -1,58 +1,146 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { HiArrowRight } from 'react-icons/hi'
 
 const Hero = () => {
+  const [typedText, setTypedText] = useState('')
+  const [showCursor, setShowCursor] = useState(true)
+  const fullText = 'Développez votre projet\nWeb Mobile Data sur mesure'
+
+  useEffect(() => {
+    let i = 0
+    const typeText = () => {
+      if (i < fullText.length) {
+        setTypedText(fullText.slice(0, i + 1))
+        i++
+        setTimeout(typeText, 100)
+      } else {
+        setTimeout(() => setShowCursor(false), 2000)
+      }
+    }
+    
+    const timer = setTimeout(typeText, 500)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const handleScrollClick = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    })
+  }
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
+      {/* Background gradient */}
+      <div 
+        className="absolute inset-0 opacity-90"
+        style={{
+          background: 'linear-gradient(45deg, #2c1810 0%, #3d2818 20%, #4a3420 40%, #2d1f15 60%, #1a1208 80%, #0f0905 100%)'
+        }}
+      />
+      
+      {/* Animated shapes */}
+      <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-5xl md:text-7xl font-light text-gray-900 mb-6">
-            Custom Digital Development
-          </h1>
-          
-          <motion.p
-            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto font-light mt-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            We craft exceptional digital experiences that transform your vision into reality
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-            <motion.button
-              className="bg-primary text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-primary/90 transition-all duration-300 flex items-center gap-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contacter nous
-              <HiArrowRight />
-            </motion.button>
-          </motion.div>
-        </motion.div>
-
+          className="absolute w-[800px] h-[800px] rounded-full opacity-60 blur-[60px]"
+          style={{
+            background: 'radial-gradient(circle, rgba(139, 104, 71, 0.4) 0%, transparent 70%)',
+            top: '-20%',
+            right: '-10%'
+          }}
+          animate={{
+            x: [0, 30, -20, 40, 0],
+            y: [0, -50, 30, 20, 0],
+            rotate: [0, 90, 180, 270, 360],
+            scale: [1, 1.1, 0.9, 1.05, 1]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
         <motion.div
-          className="mt-20"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-            alt="Digital Development"
-            className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
-          />
-        </motion.div>
+          className="absolute w-[600px] h-[600px] rounded-full opacity-60 blur-[60px]"
+          style={{
+            background: 'radial-gradient(circle, rgba(160, 120, 80, 0.3) 0%, transparent 70%)',
+            bottom: '-15%',
+            left: '-5%'
+          }}
+          animate={{
+            x: [0, 30, -20, 40, 0],
+            y: [0, -50, 30, 20, 0],
+            rotate: [0, 90, 180, 270, 360],
+            scale: [1, 1.1, 0.9, 1.05, 1]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: -7
+          }}
+        />
+        
+        <motion.div
+          className="absolute w-[400px] h-[400px] rounded-full opacity-60 blur-[60px]"
+          style={{
+            background: 'radial-gradient(circle, rgba(200, 150, 100, 0.2) 0%, transparent 70%)',
+            top: '30%',
+            left: '20%'
+          }}
+          animate={{
+            x: [0, 30, -20, 40, 0],
+            y: [0, -50, 30, 20, 0],
+            rotate: [0, 90, 180, 270, 360],
+            scale: [1, 1.1, 0.9, 1.05, 1]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: -14
+          }}
+        />
       </div>
+
+      {/* Main content */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-50">
+        <h1 className="text-white font-light leading-tight tracking-wide mb-8" 
+            style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}>
+          <span className={`inline-block ${showCursor ? 'border-r-2 border-white' : ''}`}>
+            {typedText.split('\n').map((line, index) => (
+              <span key={index}>
+                {line}
+                {index < typedText.split('\n').length - 1 && <br />}
+              </span>
+            ))}
+          </span>
+        </h1>
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div 
+        className="absolute bottom-12 left-12 z-100 cursor-pointer"
+        onClick={handleScrollClick}
+        whileHover={{ scale: 1.1 }}
+        animate={{ opacity: [1, 0.5, 1] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <div className="w-15 h-15 border border-white/30 rounded-full flex items-center justify-center hover:border-white transition-all duration-300">
+          <div className="w-3 h-3 border-r border-b border-white/70 transform rotate-45 -mt-1" />
+        </div>
+      </motion.div>
+
+      <style jsx>{`
+        @keyframes blink-caret {
+          from, to { border-color: transparent; }
+          50% { border-color: white; }
+        }
+        .border-r-2 {
+          animation: blink-caret 0.75s step-end infinite;
+        }
+      `}</style>
     </section>
   )
 }

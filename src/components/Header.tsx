@@ -24,37 +24,47 @@ const Header = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="w-full px-8 lg:px-12">
+        <div className="flex justify-between items-center h-20">
           <motion.div
-            className="text-2xl font-bold text-primary"
+            className="text-xl font-light text-white tracking-widest"
             whileHover={{ scale: 1.05 }}
           >
-            Terros
+            monopo saigon
           </motion.div>
 
-          <nav className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-primary transition-colors duration-200"
-                whileHover={{ y: -2 }}
-              >
-                {item.name}
-              </motion.a>
-            ))}
+          <nav className="hidden lg:flex items-center">
+            <ul className="flex gap-8 items-center">
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  <motion.a
+                    href={item.href}
+                    className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light whitespace-nowrap"
+                    whileHover={{ y: -2 }}
+                  >
+                    {item.name}
+                  </motion.a>
+                </li>
+              ))}
+              <li>
+                <motion.a
+                  href="#"
+                  className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light ml-4"
+                  whileHover={{ y: -2 }}
+                >
+                  EN
+                </motion.a>
+              </li>
+            </ul>
           </nav>
 
           <button
-            className="md:hidden text-gray-700"
+            className="lg:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
@@ -63,22 +73,29 @@ const Header = () => {
 
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden bg-white border-t"
+            className="lg:hidden bg-black/90 backdrop-blur-md"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
           >
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-4 pt-4 pb-6 space-y-4 flex flex-col items-center">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-primary"
+                  className="block text-white/70 hover:text-white text-sm font-light"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
+              <a
+                href="#"
+                className="block text-white/70 hover:text-white text-sm font-light"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                EN
+              </a>
             </div>
           </motion.div>
         )}
