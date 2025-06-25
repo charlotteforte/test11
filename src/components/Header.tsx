@@ -73,7 +73,7 @@ const Header = () => {
 
         {isMobileMenuOpen && (
           <motion.div
-            className="lg:hidden bg-black/90 backdrop-blur-md"
+            className="lg:hidden bg-black/90 backdrop-blur-md z-[100]"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
