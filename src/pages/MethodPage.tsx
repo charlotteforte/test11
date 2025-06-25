@@ -39,7 +39,7 @@ const MethodPage = () => {
       <section className="pt-32 pb-20" style={{ background: 'linear-gradient(180deg, #000000 0%, #050608 20%, #0a0d11 40%, #141b26 60%, #1f2937 80%, #374151 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center"
+            className="text-left"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -50,7 +50,7 @@ const MethodPage = () => {
             <h2 className="text-3xl md:text-4xl font-light text-white/90 mb-8">
               Prototyper. Développer. Itérer.
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-300 max-w-4xl leading-relaxed">
               Notre méthode de développement Web et Mobile agile vise à concevoir des produits de manière efficace et pragmatique.
             </p>
           </motion.div>
@@ -61,7 +61,7 @@ const MethodPage = () => {
       <section className="py-20" style={{ background: 'linear-gradient(180deg, #374151 0%, #4b5563 15%, #5a6478 30%, #6b7280 45%, #737a85 60%, #7a8189 75%, #898F9B 85%, #9ba1ab 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-16"
+            className="text-left mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -70,10 +70,10 @@ const MethodPage = () => {
             <h2 className="text-4xl md:text-5xl font-light text-white mb-8">
               Développer une plateforme ou application sur mesure : mode d'emploi
             </h2>
-            <p className="text-xl text-gray-200 max-w-5xl mx-auto leading-relaxed mb-6">
+            <p className="text-xl text-gray-200 max-w-5xl leading-relaxed mb-6">
               Notre méthode de développement agile se découpe en 4 étapes successives : conception, développement, déploiement, évolution.
             </p>
-            <p className="text-lg text-gray-300 max-w-5xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-300 max-w-5xl leading-relaxed">
               Ces 4 étapes visent à atteindre un objectif précis : lancer une première version de votre projet dans un délai restreint, afin de le confronter dès que possible à vos utilisateurs cibles et mettre à profit leurs retours pour itérer efficacement sur le produit.
             </p>
           </motion.div>
