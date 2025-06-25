@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.meetLeoCard {
+  width: 100%;
+  position: relative;
+  height: 175px;
+  text-align: left;
+  font-size: 24px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cardBackground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #58739c 59.62%, #1e2836);
+  transition: all 0.3s ease;
+}
+
+.meetLeoCard:hover .cardBackground {
+  background: linear-gradient(180deg, #58739c 60%, #1e2836);
+  box-shadow: 0 10px 30px rgba(88, 115, 156, 0.3);
+}
+
+.meetLeo {
+  position: absolute;
+  top: 9.14%;
+  left: 6.01%;
+  font-weight: 600;
+  z-index: 2;
+  transition: left 0.3s ease;
+}
+
+.meetLeoCard:hover .meetLeo {
+  left: 7.14%;
+}
+
+.iaDeveloppeur {
+  position: absolute;
+  top: 76%;
+  left: 6.01%;
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.9;
+  z-index: 2;
+  transition: left 0.3s ease;
+}
+
+.meetLeoCard:hover .iaDeveloppeur {
+  left: 7.14%;
+}
+
+.arrowContainer {
+  position: absolute;
+  top: 58.86%;
+  right: 3.7%;
+  width: 15.08%;
+  height: 32.57%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowCircle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.arrowIcon {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  color: #1e2836;
+  z-index: 3;
+}
