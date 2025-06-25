@@ -35,7 +35,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 opacity-90"
         style={{
-          background: 'linear-gradient(45deg, #2c1810 0%, #3d2818 20%, #4a3420 40%, #2d1f15 60%, #1a1208 80%, #0f0905 100%)'
+          background: 'linear-gradient(45deg, #1a2332 0%, #2d3a4f 20%, #3f4e6b 40%, #2a3548 60%, #1e2a3a 80%, #0f1419 100%)'
         }}
       />
       
@@ -108,7 +108,7 @@ const Hero = () => {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-50">
         <h1 className="text-white font-light leading-tight tracking-wide mb-8 font-sans" 
             style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
-          <span className={`inline-block ${showCursor ? 'border-r-2 border-white' : ''}`}>
+          <span className={`inline-block ${showCursor ? 'border-r border-white' : ''}`}>
             {typedText.split('\n').map((line, index) => (
               <span key={index}>
                 {line}
@@ -137,7 +137,7 @@ const Hero = () => {
           from, to { border-color: transparent; }
           50% { border-color: white; }
         }
-        .border-r-2 {
+        .border-r {
           animation: blink-caret 0.75s step-end infinite;
         }
       `}</style>
